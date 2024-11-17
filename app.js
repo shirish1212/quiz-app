@@ -69,7 +69,7 @@ app.post('/api/v1/quiz/create', (req, res) => {
             quizzes.push(newQuiz);
 
             // Use responseFormatter to format the success response
-            const successResponse = formatter.success(newQuiz);
+            const successResponse = formatter.success(" quizzes created successfully");
             res.status(successResponse.statusCode).json(successResponse.body);
         }else{
           const errorResponse = formatter.error('Invalid request parameters: id and questions are required.');
