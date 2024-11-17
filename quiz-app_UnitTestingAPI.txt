@@ -1,0 +1,146 @@
+quiz-app API documentation
+
+1. Create quiz API
+
+URL - https://localhost:3000/api/v1/quiz/create
+
+Method - POST
+
+request body - {
+  "id": "123",
+  "name": "General Knowledge Quiz",
+  "questions": [
+    {
+      "que_id": "1",
+      "question": "What is the capital of France?",
+      "options": ["Berlin", "Madrid", "Paris", "Rome"],
+      "correct_option": "Paris"
+    },
+    {
+      "que_id": "2",
+      "question": "Who wrote 'To Kill a Mockingbird'?",
+      "options": ["Harper Lee", "J.K. Rowling", "Ernest Hemingway", "F. Scott Fitzgerald"],
+      "correct_option": "Harper Lee"
+    },
+    {
+      "que_id": "3",
+      "question": "What is the largest planet in our solar system?",
+      "options": ["Earth", "Jupiter", "Saturn", "Mars"],
+      "correct_option": "Jupiter"
+    }
+  ]
+}
+
+
+response body - {
+    "status": true,
+    "data": " quizzes created successfully",
+    "error_code": null,
+    "message": "success"
+}
+
+
+
+2. Get quiz details using id
+
+URL - https://localhost:3000/api/v1/quiz/:id
+
+Method - GET
+
+Response body - {
+    "status": true,
+    "data": {
+        "id": "123",
+        "name": "General Knowledge Quiz",
+        "questions": [
+            {
+                "que_id": "1",
+                "question": "What is the capital of France?",
+                "options": [
+                    "Berlin",
+                    "Madrid",
+                    "Paris",
+                    "Rome"
+                ]
+            },
+            {
+                "que_id": "2",
+                "question": "Who wrote 'To Kill a Mockingbird'?",
+                "options": [
+                    "Harper Lee",
+                    "J.K. Rowling",
+                    "Ernest Hemingway",
+                    "F. Scott Fitzgerald"
+                ]
+            },
+            {
+                "que_id": "3",
+                "question": "What is the largest planet in our solar system?",
+                "options": [
+                    "Earth",
+                    "Jupiter",
+                    "Saturn",
+                    "Mars"
+                ]
+            }
+        ]
+    },
+    "error_code": null,
+    "message": "success"
+}
+
+
+3. Submit quiz answer using id
+
+URL - https://localhost:3000/api/v1/quiz/:id/submit
+
+Method - POST
+
+Request body - {
+  "user_id": "user456",
+  "que_id": "1",
+  "answer": "Pari"
+}
+
+
+Response body - {
+    "status": true,
+    "data": {
+        "que_id": "1",
+        "isCorrect": false,
+        "correctAnswer": "Paris"
+    },
+    "error_code": null,
+    "message": "success"
+}
+
+
+4. Get quiz results for specific user456
+
+URL - https://localhost:3000/api/v1/quiz/:id/results?user_id=user456
+
+Method - GET
+
+Response body - {
+    "status": true,
+    "data": {
+        "score": 1,
+        "totalQuestions": 2,
+        "summary": [
+            {
+                "que_id": "1",
+                "userAnswer": "Paris",
+                "correctAnswer": "Paris",
+                "isCorrect": true
+            },
+            {
+                "que_id": "1",
+                "userAnswer": "Pari",
+                "correctAnswer": "Paris",
+                "isCorrect": false
+            }
+        ]
+    },
+    "error_code": null,
+    "message": "success"
+}
