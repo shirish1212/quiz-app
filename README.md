@@ -5,15 +5,14 @@ This README would normally document whatever steps are necessary to get your app
 ### What is this repository for? ###
 
 * Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Version 1.0
+* quiz app
 
 ### How do I get set up? ###
 
 * Summary of set up
 * Configuration
 * Dependencies
-* Database configuration
 * How to run tests
 * Deployment instructions
 
@@ -27,3 +26,12 @@ This README would normally document whatever steps are necessary to get your app
 
 * Repo owner or admin
 * Other community or team contact
+
+### summary of set up
+
+* Download Node latest version
+* Run command - npm i 
+* Run command - node app.js
+
+### How to run tests
+* please check API documentation for run tests
